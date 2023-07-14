@@ -24,14 +24,14 @@ let galllery = galleryItems
 img.insertAdjacentHTML("afterbegin", galllery);
 img.addEventListener("click", (e) => {
   e.preventDefault();
+
   const urlImg = e.target.dataset.source;
   const instance = basicLightbox.create(`<img src="${urlImg}" alt="img">`);
   instance.show();
 
-  img.addEventListener("keydown", closeEscape);
-  function closeEscape(e) {
+  img.addEventListener("keydown", (e) => {
     if (e.code === "Escape") {
       instance.close();
     }
-  }
+  });
 });

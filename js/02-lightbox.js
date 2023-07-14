@@ -15,20 +15,11 @@ let containerImg = galleryItems
   )
   .join("");
 
-galleryImg.insertAdjacentHTML("afterbegin", containerImg);
+galleryImg.insertAdjacentHTML("beforeend", containerImg);
 
-galleryImg.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  const lightbox = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionDelay: 250,
-  });
-
-  galleryImg.addEventListener("keydown", closeEscape);
-  function closeEscape(e) {
-    if (e.code === "Escape") {
-      instance.close();
-    }
-  }
+galleryImg.addEventListener("click", () => {});
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
 });
+lightbox.on("show.simplelightbox");
